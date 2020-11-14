@@ -197,43 +197,43 @@ public class Polista
     /*Método para restar dos polinomios en Listas*/
     public Polista restar (Polista B)
     {
-        Nodo p=cab, q=B.getCab();
-        Polista  R= new Polista();
-        while( p!=null && q!=null)
+        Nodo p = cab, q = B.getCab();
+        Polista  R = new Polista();
+        while( p != null && q != null)
         {
             if(p.getExp() == q.getExp() )
             {
-                if(p.getCoef()-q.getCoef()!=0)
+                if(p.getCoef() - q.getCoef() != 0)
                 {
-                    R.insertarTerm( (p.getCoef()-q.getCoef()), p.getExp() );
+                    R.insertarTerm( (p.getCoef()- q.getCoef()), p.getExp() );
                 }
-                p=p.getLiga();
-                q=q.getLiga();
+                p = p.getLiga();
+                q = q.getLiga();
             }
             else
             {
-                if(p.getExp()>q.getExp())
+                if(p.getExp() > q.getExp())
                 {
                     R.insertarTerm(p.getCoef(), p.getExp());
-                    p=p.getLiga();
+                    p = p.getLiga();
                 }
                 else
                 {
-                    R.insertarTerm(q.getCoef(), q.getExp());
-                    q=q.getLiga();
+                    R.insertarTerm(-q.getCoef(), q.getExp());
+                    q = q.getLiga();
                 }
             }
          }
         
-        while(p!=null) 
+        while(p != null) 
         {
             R.insertarTerm(p.getCoef(), p.getExp());
-            p=p.getLiga();
+            p = p.getLiga();
         }
-        while(q!=null) 
+        while(q != null) 
         {
-            R.insertarTerm(q.getCoef(), q.getExp());
-            q=q.getLiga();
+            R.insertarTerm(-q.getCoef(), q.getExp());
+            q = q.getLiga();
         }
         return(R);
     }
@@ -267,7 +267,7 @@ public class Polista
             JOptionPane.showMessageDialog(null,"Uno de los polinomios está vacío");
             return null;
         }else{
-            if (cab.getExp() > q.getExp()) {
+            if (cab.getExp() >= q.getExp()) {
                 Polista copia = this.hacerCopia();
                 Polista R = new Polista();
                 p = copia.getCab();
