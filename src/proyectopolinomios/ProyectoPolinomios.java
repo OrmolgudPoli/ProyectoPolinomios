@@ -127,7 +127,7 @@ public class ProyectoPolinomios {
         Polvf2 A, B, C;
         int canterm, opcion;
         float x;
-        String menu = "***MENÚ***\n1- Mostrar\n2- Evaluar\n3- Sumar\n4- Multiplicar\n5- Dividir\n6- Restar\n0- Salir\nDigite la opción";
+        String menu = "***MENÚ***\n1- Mostrar\n2- Evaluar\n3- Sumar\n4- Multiplicar\n5- Dividir\n6- Restar\n7- Eliminar Termino\n0- Salir\nDigite la opción";
         canterm = Integer.parseInt(JOptionPane.showInputDialog("Cuántos términos tiene el polinomio?"));
         A = new Polvf2(canterm);
         A.ingresarTerminos(canterm);
@@ -183,7 +183,10 @@ public class ProyectoPolinomios {
                                                             + "\nDatos del polinomio 2\n" + B.mostrar()
                                                            + "\nDatos del polinomio resta\n" + C.mostrar());
                     break;
-                    
+                case 7:     
+                    A.eliminarTerm();
+                    JOptionPane.showMessageDialog(null, "Datos del polinomio 1\n" + A.mostrar());
+                    break;
                 case 0: System.exit(0);
 
             }
