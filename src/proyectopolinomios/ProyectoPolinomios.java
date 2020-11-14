@@ -17,7 +17,7 @@ public class ProyectoPolinomios {
         menuppal();
     }
     
-    //método para el menu principal
+    //método para el menu principal //Repositorio actualizado
     public static void menuppal()
     {
         String menu = "***MENU***\n1- Polinomios vector f1\n2- Polinomios vector f2\n3- Polinomios listas ligadas\n4- combinados\n0- Salir";
