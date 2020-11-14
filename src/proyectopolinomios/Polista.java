@@ -153,7 +153,7 @@ public class Polista
     /*Método para sumar dos polinomios en Listas*/
     public Polista sumar(Polista B)
     {
-        Nodo p=cab, q=B.getCab();
+        Nodo p = cab, q = B.getCab();
         Polista  R= new Polista();
         while( p!=null && q!=null)
         {
@@ -380,6 +380,7 @@ public class Polista
         if (first == null || second == null){ //Si alguno de los dos está vacío
             flag = false;
             System.out.println("Uno de los polinomios está vacío");
+            JOptionPane.showMessageDialog(null, "Uno de los polinomios está vacío");
         }else{
             while (flag == true){
                 if(first == null && second == null){                                                //Si ambos llegan al final de lectura iguales
@@ -396,8 +397,10 @@ public class Polista
         }
         if(flag == true){
             System.out.println("Los polinomios son iguales");
+            JOptionPane.showMessageDialog(null, "Los polinomios son iguales");
         }else{
             System.out.println("Los polinomios son diferentes");
+            JOptionPane.showMessageDialog(null, "Los polinomios son diferentes");
         }
     }
 }
