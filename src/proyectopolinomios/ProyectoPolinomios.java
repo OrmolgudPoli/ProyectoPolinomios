@@ -196,7 +196,7 @@ public class ProyectoPolinomios {
     //método para el menú polinomio en listas ligadas
     public static void menupolista()
     {
-        String menu3 = "***MENU***\n1- Mostrar\n2- Evaluar\n3- Sumar\n4- Multiplicar\n5- Dividir\n6- Restar\n0- Salir\nDigite la opcion";
+        String menu3 = "***MENU***\n1- Mostrar\n2- Evaluar\n3- Sumar\n4- Multiplicar\n5- Dividir\n6- Restar\n7- Eliminar termino\n8- Comparar\n0- Salir\nDigite la opcion";
         float x;
         int opcion;
         Polista A, B, C;
@@ -245,7 +245,13 @@ public class ProyectoPolinomios {
                                                     + "\nDatos del polinomio 2\n" + B.mostrar()
                                                    + "\nDatos del polinomio resta\n" + C.mostrar());
                     break;
-                    
+                case 7:     
+                    A.eliminarTerm();
+                    JOptionPane.showMessageDialog(null, "Datos del polinomio 1\n" + A.mostrar());
+                    break;
+                case 8:     
+                    A.comparar(B);
+                    break;
                 case 0: System.exit(0);
             }
         }while(opcion!=0); 
