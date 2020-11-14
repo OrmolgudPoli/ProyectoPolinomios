@@ -38,22 +38,20 @@ public class Polvf2
         return(n);
     }
     
-   //Método para mostrar
+   //Método para mostrar el polinomio
     public String mostrar()
     {
-        int k;
-        String salida="<html>";
-        for(k=1;k<vec[0]*2+1;k+=2)
+        String salida = "<html>";
+        for(int k = 1; k < this.getTam(); k += 2)
         {
-            if(vec[k+1]>0 && k>1)
+            if(vec[k + 1] > 0 && k > 1) //Si el coeficiente es positivo y no es el primer término
             {
-                salida=salida+" + ";
+                salida = salida + " + ";
             }
-          salida=salida+vec[k+1]+ "X<sup>" +String.valueOf((int)vec[k])+"</sup>";
+          salida = salida + vec[k + 1] + "X<sup>" + String.valueOf((int)vec[k]) + "</sup>";
         }
-        salida=salida+"</html>";
+        salida = salida + "</html>";
         return(salida);
-        //JOptionPane.showMessageDialog(null, "Datos del polinomio\n"+salida);
     }
     
     /*Método para evaluar el polinomio en vector forma 2*/
@@ -166,15 +164,18 @@ public class Polvf2
                 j++;
         }
         if(j != 0){
-            Polvf2 R = new Polvf2(getTam() - j);//Crea el objeto polinomio con el nuevo número de términos
+            Polvf2 R = new Polvf2((this.getTam() - 1)/2 - (j));//Crea el objeto polinomio con el nuevo número de términos
+            int p = (this.getTam() - 1)/2 - (j);
+            System.out.println(p);
             int k = 1;
             for (int i = 2; i < vec.length; i = i + 2) {//copia los datos útiles al nuevo vector
                 if(vec[i] != 0){
-                    R.vec[k] = vec[i];
-                    R.vec[k - 1] = vec[i - 1];
+                    R.vec[k] = vec[i - 1];
+                    R.vec[k + 1] = vec[i];
                     k = k + 2;
                 }
             }
+            this.n = R.n;
             this.vec = R.vec;//Asigna el nuevo vector al objeto original
         }
     }
@@ -227,14 +228,12 @@ public class Polvf2
     /*Método para eliminar el primer término en un polinomio en vector forma 2*/
     public void eliminarTerm()
     {
-        if (n > 1)
+        if (n >= 3)
         {
-            n = n - 2;
-            vec[1] = 0;
-            vec[2] = 0;
-            this.ajustar();
+            this.vec[1] = 0;
+            this.vec[2] = 0;
+            this.ajustar();          
         }
-        
     }
     
     /*Método para redimensionar un vector forma 2*/
